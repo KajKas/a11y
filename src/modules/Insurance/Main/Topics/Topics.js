@@ -3,18 +3,19 @@ import styled from "styled-components";
 
 import {TopicCard} from "./TopicCard/TopicCard";
 
-import travel4 from '../../../assets/travel4.jpg'
-import travel5 from '../../../assets/travel5.jpg'
-import travel6 from '../../../assets/travel6.jpg'
-import travel7 from '../../../assets/travel7.jpg'
+import travel4 from '../../../../assets/travel4.jpg'
+import travel5 from '../../../../assets/travel5.jpg'
+import travel6 from '../../../../assets/travel6.jpg'
+import travel7 from '../../../../assets/travel7.jpg'
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
   justify-content: space-around;
 `;
 
 const Content = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export const Topics = () => {
@@ -29,7 +30,7 @@ export const Topics = () => {
     <Wrapper>
       <Content>
         {topicsList.map(({image, alt, title}) => (
-          <TopicCard image={image} alt={alt} title={title}/>
+          <TopicCard key={title} image={image} alt={alt} title={title}/>
         ))}
       </Content>
     </Wrapper>

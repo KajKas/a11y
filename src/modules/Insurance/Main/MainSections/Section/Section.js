@@ -1,20 +1,46 @@
 import React from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
-  flex-direction: ${ props => props.revertOrder ? 'row-reverse' : 'row'};
+  justify-content: space-around;
 `;
 
-export const Section = ({ image, alt, children, revertOrder, title }) => {
+const Content = styled.div`
+  display: flex;
+  flex-direction: ${props => props.revertOrder ? 'row-reverse' : 'row'};
+  flex-wrap: wrap;
+`;
+
+const StyledImage = styled.img`
+  width: 100%;
+  
+  @media only screen and (min-width: 1200px) {
+    width: 500px;
+    margin: 20px;
+  }
+`;
+
+const TextContent = styled.div`
+  width: 100%;
+
+  @media only screen and (min-width: 1200px) {
+    width: 500px;
+    margin: 20px;
+  }
+`;
+
+export const Section = ({image, alt, children, revertOrder, title}) => {
 
   return (
-    <Wrapper revertOrder={revertOrder}>
-      <img src={image} alt={alt} />
-      <div>
-        <h2>{title}</h2>
-        {children}
-      </div>
+    <Wrapper>
+      <Content revertOrder={revertOrder}>
+        <StyledImage src={image} alt={alt}/>
+        <TextContent>
+          <h2>{title}</h2>
+          {children}
+        </TextContent>
+      </Content>
     </Wrapper>
   )
 }
