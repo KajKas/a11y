@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import {useHistory} from "react-router-dom";
+
 import {Button} from "../../../../components/Button/Button";
 
 const Wrapper = styled.section`
@@ -49,6 +51,7 @@ const Buttons = styled.div`
 `;
 
 export const CallToAction = () => {
+  const history = useHistory();
 
   return (
     <Wrapper>
@@ -57,8 +60,8 @@ export const CallToAction = () => {
         <p>Contact us to order now</p>
       </Text>
       <Buttons>
-        <Button text='Call Us' />
-        <Button isDark text='Send a Message' />
+        <Button text='Call Us' onClick={() => history.push('/not-found')} />
+        <Button isDark text='Send a Message' onClick={() => history.push('/not-found')} />
       </Buttons>
     </Wrapper>
   )

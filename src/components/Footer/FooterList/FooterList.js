@@ -32,7 +32,7 @@ export const FooterList = ({linkList}) => {
   return (
     <Wrapper>
       <Title>{linkList.title}</Title>
-      <List>{linkList.links.map(link => <li key={link}><a href="#">{link}</a></li>)}</List>
+      <List>{linkList.links.map(link => <li key={link}><a href="/not-found">{link}</a></li>)}</List>
     </Wrapper>
   )
 }

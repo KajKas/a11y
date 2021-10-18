@@ -15,8 +15,8 @@ const StyledButton = styled.button`
   align-self: ${props => props.align};
 `;
 
-export const Button = ({ isDark, text, align }) => {
+export const Button = ({ isDark, text, align, onClick }) => {
   return (
-    <StyledButton isDark={isDark} align={align}>{text}</StyledButton>
+    <StyledButton isDark={isDark} align={align} onClick={onClick}>{text}</StyledButton>
   )
 }

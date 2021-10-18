@@ -55,9 +55,9 @@ export const Navigation = () => {
       <Logo to="/" aria-label='go to homepage'><img src={logo} alt="logo" /></Logo>
       {isDesktop ? <div>
         <StyledNavLink exact to='/'>Insurance</StyledNavLink>
-        <StyledNavLink exact to='/about-us'>About us</StyledNavLink>
+        <StyledNavLink exact to='/not-found'>About us</StyledNavLink>
         <StyledNavLink exact to='/claim-report'>Claim report</StyledNavLink>
-        <StyledNavLink exact to='/contact'>Contact</StyledNavLink>
+        <StyledNavLink exact to='/not-found'>Contact</StyledNavLink>
       </div> : <Hamburger aria-label='menu' icon={faBars} />}
     </Wrapper>
   )
