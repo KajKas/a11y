@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {Route, Switch, BrowserRouter, useHistory} from 'react-router-dom';
+import {Route, Switch, BrowserRouter, useHistory, HashRouter} from 'react-router-dom';
 import styled from "styled-components";
 
 import {Navigation} from "./components/Navigation/Navigation";
@@ -27,7 +27,7 @@ function App() {
 
   return (
     <Container>
-      <BrowserRouter>
+      <HashRouter>
         <Navigation/>
         <Switch>
           <Route exact path='/a11y/' component={Insurance}/>
@@ -37,7 +37,7 @@ function App() {
           <Route exact path='/a11y/not-found' component={NotFound}/>
         </Switch>
         <Footer/>
-      </BrowserRouter>
+      </HashRouter>
     </Container>
   );
 }
