@@ -60,8 +60,8 @@ export const CallToAction = () => {
         <p>Contact us to order now</p>
       </Text>
       <Buttons>
-        <Button text='Call Us' onClick={() => history.push('/a11y/not-found')} />
-        <Button isDark text='Send a Message' onClick={() => history.push('/a11y/not-found')} />
+        <Button text='Call Us' onClick={() => history.push('/not-found')} />
+        <Button isDark text='Send a Message' onClick={() => history.push('/not-found')} />
       </Buttons>
     </Wrapper>
   )

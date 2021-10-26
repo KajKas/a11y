@@ -56,12 +56,12 @@ export const Navigation = () => {
 
   return (
     <Wrapper>
-      <Logo to="/a11y/" aria-label='go to homepage'><img src={logo} alt="logo" /></Logo>
+      <Logo to="/" aria-label='go to homepage'><img src={logo} alt="logo" /></Logo>
       {isDesktop ? <div>
-        <StyledNavLink exact to='/a11y/'>Insurance</StyledNavLink>
-        <StyledNavLink exact to='/a11y/not-found'>About us</StyledNavLink>
-        <StyledNavLink exact to='/a11y/claim-report'>Claim report</StyledNavLink>
-        <StyledNavLink exact to='/a11y/not-found'>Contact</StyledNavLink>
+        <StyledNavLink exact to='/'>Insurance</StyledNavLink>
+        <StyledNavLink exact to='/about-us'>About us</StyledNavLink>
+        <StyledNavLink exact to='/claim-report'>Claim report</StyledNavLink>
+        <StyledNavLink exact to='/contact'>Contact</StyledNavLink>
       </div> : <Hamburger aria-label='menu' icon={faBars} />}
     </Wrapper>
   )

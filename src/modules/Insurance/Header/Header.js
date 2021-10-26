@@ -56,7 +56,7 @@ export const Header = () => {
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias aperiam atque commodi, culpa eaque
             explicabo
             facilis hic ipsa modi, natus nobis porro possimus quam quod repellendus sequi vel voluptatem?</p>
-          <Link to="/a11y/not-found">Order now</Link>
+          <Link to="/not-found">Order now</Link>
         </BannerText>
       </Banner>
     </Wrapper>

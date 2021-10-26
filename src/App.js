@@ -1,12 +1,9 @@
-import {useEffect} from "react";
 import {Route, Switch, BrowserRouter, useHistory, HashRouter} from 'react-router-dom';
 import styled from "styled-components";
 
 import {Navigation} from "./components/Navigation/Navigation";
 import {Insurance} from "./modules/Insurance/Insurance";
-import {AboutUs} from "./modules/AboutUs/AboutUs";
 import {ClaimReport} from "./modules/ClaimReport/ClaimReport";
-import {Contact} from "./modules/Contact/Contact";
 import {Footer} from "./components/Footer/Footer";
 import {NotFound} from "./modules/NotFound/NotFound";
 
@@ -30,11 +27,9 @@ function App() {
       <HashRouter>
         <Navigation/>
         <Switch>
-          <Route exact path='/a11y/' component={Insurance}/>
-          <Route exact path='/a11y/about-us' component={AboutUs}/>
-          <Route exact path='/a11y/claim-report' component={ClaimReport}/>
-          <Route exact path='/a11y/contact' component={Contact}/>
-          <Route exact path='/a11y/not-found' component={NotFound}/>
+          <Route exact path='/' component={Insurance}/>
+          <Route exact path='/claim-report' component={ClaimReport}/>
+          <Route component={NotFound}/>
         </Switch>
         <Footer/>
       </HashRouter>

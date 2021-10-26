@@ -34,12 +34,34 @@ const FooterLinks = styled.div`
 `;
 
 const footerLinks = [
-  {title: 'About us', links: ['Newsroom', 'Careers', 'Our story', 'Customer Stories']},
   {
-    title: 'Products',
-    links: ['Vacation / Holiday', 'Student / Scholar', 'Mission', 'Marine Captain / Crew', 'Employer / Business Travel']
+    sectionTitle: 'About us',
+    links: [
+      {linkTitle: 'Newsroom', linkUrl: 'newsroom'},
+      {linkTitle: 'Careers', linkUrl: 'careers'},
+      {linkTitle: 'Our story', linkUrl: 'our-story'},
+      {linkTitle: 'Customer Stories', linkUrl: 'customer-stories'},
+    ]
   },
-  {title: 'Members', links: ['Forms Library', 'Find a Doctor', 'Renew Policy', 'Claims Center']}
+  {
+    sectionTitle: 'Products',
+    links: [
+      {linkTitle: 'Vacation / Holiday', linkUrl: 'vacation-holiday'},
+      {linkTitle: 'Student / Scholar', linkUrl: 'student-scholar'},
+      {linkTitle: 'Mission', linkUrl: 'mission'},
+      {linkTitle: 'Marine Captain / Crew', linkUrl: 'captain-crew'},
+      {linkTitle: 'Employer / Business Travel', linkUrl: 'employer-business'},
+    ]
+  },
+  {
+    sectionTitle: 'Members',
+    links: [
+      {linkTitle: 'Forms Library', linkUrl: 'forms-library'},
+      {linkTitle: 'Find a Doctor', linkUrl: 'find-doctor'},
+      {linkTitle: 'Renew Policy', linkUrl: 'renew-policy'},
+      {linkTitle: 'Claims Center', linkUrl: 'claims-center'},
+    ]
+  }
 ]
 
 export const Footer = () => {
@@ -49,7 +71,7 @@ export const Footer = () => {
       <Content>
         <Logo src={logo} alt="logo"/>
         <FooterLinks>
-          {footerLinks.map(linkList => <FooterList key={linkList.title} linkList={linkList}/>)}
+          {footerLinks.map(linkList => <FooterList key={linkList.sectionTitle} linkList={linkList}/>)}
         </FooterLinks>
       </Content>
     </Wrapper>
