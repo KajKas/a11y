@@ -26,6 +26,9 @@ const Input = styled.input`
   margin-bottom: 20px;
   height: 30px;
   line-height: 30px;
+  background-color: rgba(220, 204, 163);
+  border: 2px solid #824c71;
+  border-radius: 5px;
 `;
 
 export const Main = () => {

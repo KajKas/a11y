@@ -14,6 +14,7 @@ const Content = styled.div`
 
 const StyledImage = styled.img`
   width: 100%;
+  border: 2px solid #824C71;
   
   @media only screen and (min-width: 1200px) {
     width: 500px;

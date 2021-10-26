@@ -5,7 +5,7 @@ const Wrapper = styled.section`
   margin: 50px 0 50px 0;
   min-height: 300px;
   text-align: center;
-  background-color: #F2F2F2;
+  background-color: #e7d5a2;
   display: flex;
   flex-direction: column;
   justify-content: center;

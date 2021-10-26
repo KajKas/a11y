@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -32,7 +33,7 @@ export const FooterList = ({linkList}) => {
   return (
     <Wrapper>
       <Title>{linkList.title}</Title>
-      <List>{linkList.links.map(link => <li key={link}><a href="/not-found">{link}</a></li>)}</List>
+      <List>{linkList.links.map(link => <li key={link}><Link to="/a11y/not-found">{link}</Link></li>)}</List>
     </Wrapper>
   )
 }

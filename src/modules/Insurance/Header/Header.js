@@ -1,7 +1,8 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import styled from "styled-components";
 
-import travel1 from '../../../assets/travel1.jpg'
+import travel1 from '../../../assets/travel9.jpg'
 
 const Wrapper = styled.header`
   display: flex;
@@ -18,7 +19,7 @@ const Banner = styled.div`
 `;
 
 const BannerText = styled.div`
-  background-color: rgba(1, 1, 1, 0.5);
+  background-color: rgba(144, 170, 134, 0.7);
   color: #fff;
   display: flex;
   align-items: center;
@@ -55,7 +56,7 @@ export const Header = () => {
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab alias aperiam atque commodi, culpa eaque
             explicabo
             facilis hic ipsa modi, natus nobis porro possimus quam quod repellendus sequi vel voluptatem?</p>
-          <a href="/not-found">Order now</a>
+          <Link to="/a11y/not-found">Order now</Link>
         </BannerText>
       </Banner>
     </Wrapper>

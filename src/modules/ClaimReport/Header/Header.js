@@ -28,16 +28,16 @@ const Step = styled.button`
   border-radius: 10px;
   width: 300px;
   height: 50px;
-  background-color: #C4C4C4;
+  background-color: rgba(126, 38, 115, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 5px 30px;
   cursor: pointer;
-  
+  color: #fff;
+
   &.active {
-    background-color: #000;
-    color: #fff;
+    background-color: #4a2545;
   }
 `;
 

@@ -1,4 +1,5 @@
-import {Route, Switch, BrowserRouter} from 'react-router-dom';
+import {useEffect} from "react";
+import {Route, Switch, BrowserRouter, useHistory} from 'react-router-dom';
 import styled from "styled-components";
 
 import {Navigation} from "./components/Navigation/Navigation";
@@ -14,16 +15,26 @@ const Container = styled.div`
 `;
 
 function App() {
+  // const history = useHistory();
+  // useEffect(() => {
+  //   const unlisten = history.listen(() => {
+  //     window.scrollTo(0, 0);
+  //   });
+  //   return () => {
+  //     unlisten();
+  //   }
+  // }, [history]);
+
   return (
     <Container>
       <BrowserRouter>
         <Navigation/>
         <Switch>
-          <Route exact path='/' component={Insurance}/>
-          <Route exact path='/about-us' component={AboutUs}/>
-          <Route exact path='/claim-report' component={ClaimReport}/>
-          <Route exact path='/contact' component={Contact}/>
-          <Route exact path='/not-found' component={NotFound}/>
+          <Route exact path='/a11y/' component={Insurance}/>
+          <Route exact path='/a11y/about-us' component={AboutUs}/>
+          <Route exact path='/a11y/claim-report' component={ClaimReport}/>
+          <Route exact path='/a11y/contact' component={Contact}/>
+          <Route exact path='/a11y/not-found' component={NotFound}/>
         </Switch>
         <Footer/>
       </BrowserRouter>

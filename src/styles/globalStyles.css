@@ -1,6 +1,13 @@
 body {
     font-size: 20px;
     font-family: Arial;
+    background-color: #DCCCA3;
+
+
+}
+
+p {
+    color: #4A2545;
 }
 
 @media only screen and (min-width: 768px) {

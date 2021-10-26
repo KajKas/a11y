@@ -6,17 +6,22 @@ import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
 
 import { useIsDesktop } from "../../styles/breakpoints";
 
-import logo from '../../assets/logo-light.png'
+import logo from '../../assets/logo.png'
 
 const Wrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #000;
+  border-bottom: 2px solid #4a2545;
   height: 60px;
+  background-color: #e7d5a2;
 
   @media only screen and (min-width: 768px) {
     padding: 0 200px;
+  }
+  
+  a {
+    color: #333C11;
   }
 `;
 
@@ -26,7 +31,7 @@ const StyledNavLink = styled(NavLink)`
   padding: 20px;
   
   &:hover {
-    background-color: #C4C4C4;
+    background-color: #90aa86;
   }
   
   &.active {
@@ -36,10 +41,9 @@ const StyledNavLink = styled(NavLink)`
 
 const Logo = styled(Link)`
   margin-left: 20px;
-  height: 40px;
   
   & img {
-    height: 40px;
+    height: 70px;
   } 
 `;
 
@@ -52,12 +56,12 @@ export const Navigation = () => {
 
   return (
     <Wrapper>
-      <Logo to="/" aria-label='go to homepage'><img src={logo} alt="logo" /></Logo>
+      <Logo to="/a11y/" aria-label='go to homepage'><img src={logo} alt="logo" /></Logo>
       {isDesktop ? <div>
-        <StyledNavLink exact to='/'>Insurance</StyledNavLink>
-        <StyledNavLink exact to='/not-found'>About us</StyledNavLink>
-        <StyledNavLink exact to='/claim-report'>Claim report</StyledNavLink>
-        <StyledNavLink exact to='/not-found'>Contact</StyledNavLink>
+        <StyledNavLink exact to='/a11y/'>Insurance</StyledNavLink>
+        <StyledNavLink exact to='/a11y/not-found'>About us</StyledNavLink>
+        <StyledNavLink exact to='/a11y/claim-report'>Claim report</StyledNavLink>
+        <StyledNavLink exact to='/a11y/not-found'>Contact</StyledNavLink>
       </div> : <Hamburger aria-label='menu' icon={faBars} />}
     </Wrapper>
   )

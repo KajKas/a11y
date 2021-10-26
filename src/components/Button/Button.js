@@ -10,8 +10,8 @@ const StyledButton = styled.button`
   align-items: center;
   cursor: pointer;
 
-  background-color: ${props => props.isDark ? '#000' : '#fff'};
-  color: ${props => props.isDark ? '#fff' : '#000'};
+  background-color: ${props => props.isDark ? '#4a2545' : '#fff'};
+  color: ${props => props.isDark ? '#fff' : '#4a2545'};
   align-self: ${props => props.align};
 `;
 

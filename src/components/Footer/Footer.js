@@ -3,13 +3,13 @@ import styled from "styled-components";
 
 import {FooterList} from "./FooterList/FooterList";
 
-import logo from '../../assets/logo-dark.png'
+import logo from '../../assets/logo.png'
 
 const Wrapper = styled.footer`
   display: flex;
   justify-content: space-around;
   width: 100%;
-  background-color: #F2F2F2;
+  background-color: #90AA86;
 `;
 
 const Content = styled.div`
@@ -20,7 +20,7 @@ const Content = styled.div`
 `;
 
 const Logo = styled.img`
-  height: 40px;
+  height: 120px;
   margin: 20px 5px;
 
   @media only screen and (min-width: 1200px) {

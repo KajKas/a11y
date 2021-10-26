@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   width: 100vw;
   height: 100vw;
   margin-bottom: 60px;
+  border: 2px solid #824C71;
 
   @media only screen and (min-width: 1200px) {
     height: 300px;
