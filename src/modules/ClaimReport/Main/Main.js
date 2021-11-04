@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
-import {Button} from "../../../components/Button/Button";
+import {Step1} from "./components/Step1";
+import {Step2} from "./components/Step2";
+import {Step3} from "./components/Step3";
 
 const Wrapper = styled.div`
   display: flex;
@@ -22,33 +24,24 @@ const Form = styled.form`
   }
 `;
 
-const Input = styled.input`
-  margin-bottom: 20px;
-  height: 30px;
-  line-height: 30px;
-  background-color: rgba(220, 204, 163);
-  border: 2px solid #824c71;
-  border-radius: 5px;
-`;
+export const Main = ({ setActiveStep, activeStep }) => {
+  const [expenses, setExpenses] = useState([{ name: 'old name', amount: '123' }])
 
-export const Main = () => {
+  const handleFormStep = () => {
+    switch (activeStep) {
+      case 'step1':
+        return <Step1 setActiveStep={setActiveStep}/>
+      case 'step2':
+        return <Step2 setActiveStep={setActiveStep} />
+      case 'step3':
+        return <Step3 setActiveStep={setActiveStep} expenses={expenses} setExpenses={setExpenses} />
+    }
+  }
 
   return (
     <Wrapper>
       <Form>
-        <label htmlFor="fName">First name</label>
-        <Input id="fName" type="text" autoComplete="name"/>
-        <label htmlFor="sName">Second name</label>
-        <Input id="sName" type="text" autoComplete="name"/>
-        <label htmlFor="birthday">Birthday</label>
-        <Input id="birthday" type="text" autoComplete="date"/>
-        <label htmlFor="phone">Phone number</label>
-        <Input id="phone" type="text" autoComplete="phone"/>
-        <label htmlFor="email">Email</label>
-        <Input id="email" type="text" autoComplete="email"/>
-        <label htmlFor="policy">Policy number</label>
-        <Input id="policy" type="text" autoComplete="policy"/>
-        <Button isDark text='Continue' align='end'/>
+        {handleFormStep()}
       </Form>
     </Wrapper>
   )

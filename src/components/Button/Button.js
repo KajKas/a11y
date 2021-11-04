@@ -9,9 +9,9 @@ const StyledButton = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  color: #fff;
 
-  background-color: ${props => props.isDark ? '#4a2545' : '#fff'};
-  color: ${props => props.isDark ? '#fff' : '#4a2545'};
+  background-color: ${props => props.isDark ? '#4a2545' : 'rgba(126, 38, 115, 0.5)'};
   align-self: ${props => props.align};
 `;
 

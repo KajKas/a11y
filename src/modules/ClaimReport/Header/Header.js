@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
+import {Main} from "../Main/Main";
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 `;
 
 const Content = styled.div`
@@ -20,7 +22,7 @@ const Content = styled.div`
 
 const Steps = styled.div`
   display: flex;
-  margin-bottom: 50px;
+  margin: 50px 0;
   flex-wrap: wrap;
 `;
 
@@ -41,17 +43,16 @@ const Step = styled.button`
   }
 `;
 
-export const Header = () => {
-  const [activeButton, setActiveButton] = useState('button1')
+export const Header = ({ setActiveStep, activeStep }) => {
 
   return (
     <Wrapper>
       <Content>
         <h1>Claim report</h1>
         <Steps>
-          <Step onClick={() => setActiveButton('button1')} className={activeButton === 'button1' && 'active'}>Step 1 - Personal Details</Step>
-          <Step onClick={() => setActiveButton('button2')} className={activeButton === 'button2' && 'active'}>Step 2 - Incident Details</Step>
-          <Step onClick={() => setActiveButton('button3')} className={activeButton === 'button3' && 'active'}>Step 3 - Expense Report</Step>
+          <Step onClick={() => setActiveStep('step1')} className={activeStep === 'step1' && 'active'}>Step 1 - Personal Details</Step>
+          <Step onClick={() => setActiveStep('step2')} className={activeStep === 'step2' && 'active'}>Step 2 - Incident Details</Step>
+          <Step onClick={() => setActiveStep('step3')} className={activeStep === 'step3' && 'active'}>Step 3 - Expense Report</Step>
         </Steps>
       </Content>
     </Wrapper>

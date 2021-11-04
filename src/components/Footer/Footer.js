@@ -17,6 +17,7 @@ const Content = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   width: 80%;
+  padding: 20px 0;
 `;
 
 const Logo = styled.img`
