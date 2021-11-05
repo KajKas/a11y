@@ -1,4 +1,4 @@
-import {Route, Switch, BrowserRouter, useHistory, HashRouter} from 'react-router-dom';
+import {Route, Switch, HashRouter} from 'react-router-dom';
 import styled from "styled-components";
 
 import {Navigation} from "./components/Navigation/Navigation";
@@ -12,15 +12,6 @@ const Container = styled.div`
 `;
 
 function App() {
-  // const history = useHistory();
-  // useEffect(() => {
-  //   const unlisten = history.listen(() => {
-  //     window.scrollTo(0, 0);
-  //   });
-  //   return () => {
-  //     unlisten();
-  //   }
-  // }, [history]);
 
   return (
     <Container>

@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from "styled-components";
-import {Main} from "../Main/Main";
 
 const Wrapper = styled.div`
   display: flex;

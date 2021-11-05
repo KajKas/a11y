@@ -35,6 +35,8 @@ export const Main = ({ setActiveStep, activeStep }) => {
         return <Step2 setActiveStep={setActiveStep} />
       case 'step3':
         return <Step3 setActiveStep={setActiveStep} expenses={expenses} setExpenses={setExpenses} />
+      default:
+        return <Step1 setActiveStep={setActiveStep}/>
     }
   }
 
