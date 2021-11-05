@@ -48,6 +48,10 @@ const RadioLabel = styled.label`
   -ms-user-select: none;
   user-select: none;
   
+  :focus-within {
+    border: 1px solid blue;
+  }
+  
   span {
     position: absolute;
     top: 0;
@@ -96,23 +100,23 @@ export const Step2 = ({setActiveStep}) => {
       <RadioContainer>
         <legend>Purpose of travel</legend>
         <Radio>
-          <RadioLabel htmlFor="tourism">
-            <input type="radio" id="tourism" name="purpose" value="tourism"/><span/>tourism
+          <RadioLabel htmlFor="tourism" onFocus={() => console.log('focus')}>
+            <input type="radio" id="tourism" name="tourism" value="tourism" /><span/>tourism
           </RadioLabel>
         </Radio>
         <Radio>
-          <RadioLabel htmlFor="study-mental-work">
-            <input type="radio" id="study-mental-work" name="purpose" value="study-mental-work"/><span/>study / mental work
+          <RadioLabel htmlFor="study-mental-work" onFocus={() => console.log('focus2')}>
+            <input type="radio" id="study-mental-work" name="study-mental-work" value="study-mental-work"/><span/>study / mental work
           </RadioLabel>
         </Radio>
         <Radio>
           <RadioLabel htmlFor="physical-work">
-            <input type="radio" id="physical-work" name="purpose" value="physical-work"/><span/>physical work
+            <input type="radio" id="physical-work" name="physical-work" value="physical-work"/><span/>physical work
           </RadioLabel>
         </Radio>
         <Radio>
           <RadioLabel htmlFor="high-risk-sport">
-            <input type="radio" id="high-risk-sport" name="purpose" value="high-risk-sport"/><span/>high-risk sport
+            <input type="radio" id="high-risk-sport" name="high-risk-sport" value="high-risk-sport"/><span/>high-risk sport
           </RadioLabel>
         </Radio>
       </RadioContainer>
