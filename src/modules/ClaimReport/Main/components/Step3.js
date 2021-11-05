@@ -58,7 +58,7 @@ export const Step3 = ({setActiveStep, expenses, setExpenses}) => {
       </ExpensesContainer>
       <ButtonsContainer>
         <Button onClick={() => setActiveStep('step2')} text='Return' align='start'/>
-        <Button isDark onClick={() => alert('Thanks')} text='Submit' align='end'/>
+        <Button isDark onClick={() => setActiveStep('step1')} text='Submit' align='end'/>
       </ButtonsContainer>
       {isModalOpen &&
       <Modal addExpense={addExpense} setIsModalOpen={setIsModalOpen} modalName={modalName} setModalName={setModalName}

@@ -31,6 +31,11 @@ const IconContainer = styled.div`
   display: flex;
 `;
 
+const IconButton = styled.button`
+  border: none;
+  background-color: unset;
+`;
+
 const Icon = styled(FontAwesomeIcon)`
   cursor: pointer;
   font-size: 25px;
@@ -53,8 +58,8 @@ export const Expense = ({ expenseData, removeExpense, expenseIndex, setIsModalOp
         <span>{expenseData.name}</span>
       </ExpenseInfo>
       <IconContainer>
-        <Icon icon={faTrashAlt} onClick={() => removeExpense(expenseData)}>remove</Icon>
-        <Icon icon={faPen} onClick={() => handleEdit()}>edit</Icon>
+        <IconButton aria-label="remove expense"><Icon icon={faTrashAlt} onClick={() => removeExpense(expenseData)} /></IconButton>
+        <IconButton aria-label="edit expense"><Icon icon={faPen} onClick={() => handleEdit()} /></IconButton>
       </IconContainer>
     </Container>
   )

@@ -1,13 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled from "styled-components";
 import {Button} from "../../../../components/Button/Button";
 
 const Container = styled.div`
   position: fixed;
   top: 20%;
-  bottom: 20%;
-  left: 10%;
-  right: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
   background-color: #dccca3;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
   display: flex;
@@ -58,7 +57,7 @@ export const Modal = ({ setIsModalOpen, isEditModal, addExpense, modalName, setM
       <Input id="price" type="text" autoComplete="price" value={modalPrice} onChange={(e) => handlePriceChange(e)} />
       <ButtonsContainer>
         <Button text='Cancel' align='start' onClick={() => setIsModalOpen(false)} />
-        <Button isDark text='Add' align='end' onClick={handleAddExpense} />
+        <Button isDark text='Save' align='end' onClick={handleAddExpense} />
       </ButtonsContainer>
     </Container>
   )
