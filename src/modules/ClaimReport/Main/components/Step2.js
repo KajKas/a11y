@@ -9,6 +9,7 @@ const Input = styled.input`
   background-color: rgba(220, 204, 163);
   border: 2px solid #824c71;
   border-radius: 5px;
+  padding: 1px 2px;
 `;
 
 const TextArea = styled.textarea`
@@ -116,13 +117,13 @@ export const Step2 = ({setActiveStep}) => {
         </Radio>
       </RadioContainer>
       <label htmlFor="country">Country</label>
-      <Input id="country" type="text" autoComplete="country"/>
+      <Input id="country" type="text" autoComplete="country" name="country" />
       <label htmlFor="address">Address</label>
-      <Input id="address" type="text" autoComplete="address"/>
+      <Input id="address" type="text" autoComplete="address" name="address" />
       <label htmlFor="date">Date</label>
-      <Input id="date" type="text" autoComplete="date"/>
-      <label htmlFor="date">Incident description</label>
-      <TextArea id="date" rows={5}/>
+      <Input type="date" id="date" name="date"/>
+      <label htmlFor="description">Incident description</label>
+      <TextArea id="description" rows={5} name="description" />
       <ButtonsContainer>
         <Button onClick={() => setActiveStep('step1')} text='Return' align='start'/>
         <Button isDark onClick={() => setActiveStep('step3')} text='Continue' align='end'/>

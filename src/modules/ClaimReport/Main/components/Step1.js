@@ -9,9 +9,10 @@ const Input = styled.input`
   background-color: rgba(220, 204, 163);
   border: 2px solid #824c71;
   border-radius: 5px;
+  padding: 1px 2px;
 `;
 
-export const Step1 = ({ setActiveStep }) => {
+export const Step1 = ({setActiveStep}) => {
 
   return (
     <>
@@ -20,7 +21,7 @@ export const Step1 = ({ setActiveStep }) => {
       <label htmlFor="sName">Second name</label>
       <Input id="sName" type="text" autoComplete="name"/>
       <label htmlFor="birthday">Birthday</label>
-      <Input id="birthday" type="text" autoComplete="date"/>
+      <Input type="date" id="birthday" name="birthday"/>
       <label htmlFor="phone">Phone number</label>
       <Input id="phone" type="text" autoComplete="phone"/>
       <label htmlFor="email">Email</label>
