@@ -2,6 +2,22 @@ import React from 'react';
 import styled from "styled-components";
 import {Button} from "../../../../components/Button/Button";
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Form = styled.form`
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media only screen and (min-width: 1200px) {
+    width: 50%;
+  }
+`;
+
 const Input = styled.input`
   margin-bottom: 20px;
   height: 30px;
@@ -96,42 +112,44 @@ const RadioLabel = styled.label`
 export const Step2 = ({setActiveStep}) => {
 
   return (
-    <>
-      <RadioContainer>
-        <legend>Purpose of travel</legend>
-        <Radio>
-          <RadioLabel htmlFor="tourism" onFocus={() => console.log('focus')}>
-            <input type="radio" id="tourism" name="purpose" value="tourism" /><span/>tourism
-          </RadioLabel>
-        </Radio>
-        <Radio>
-          <RadioLabel htmlFor="study-mental-work" onFocus={() => console.log('focus2')}>
-            <input type="radio" id="study-mental-work" name="purpose" value="study-mental-work"/><span/>study / mental work
-          </RadioLabel>
-        </Radio>
-        <Radio>
-          <RadioLabel htmlFor="physical-work">
-            <input type="radio" id="physical-work" name="purpose" value="physical-work"/><span/>physical work
-          </RadioLabel>
-        </Radio>
-        <Radio>
-          <RadioLabel htmlFor="high-risk-sport">
-            <input type="radio" id="high-risk-sport" name="purpose" value="high-risk-sport"/><span/>high-risk sport
-          </RadioLabel>
-        </Radio>
-      </RadioContainer>
-      <label htmlFor="country">Country</label>
-      <Input id="country" type="text" autoComplete="country" name="country" />
-      <label htmlFor="address">Address</label>
-      <Input id="address" type="text" autoComplete="address" name="address" />
-      <label htmlFor="date">Date</label>
-      <Input type="date" id="date" name="date"/>
-      <label htmlFor="description">Incident description</label>
-      <TextArea id="description" rows={5} name="description" />
-      <ButtonsContainer>
-        <Button onClick={() => setActiveStep('step1')} text='Return' align='start'/>
-        <Button isDark onClick={() => setActiveStep('step3')} text='Continue' align='end'/>
-      </ButtonsContainer>
-    </>
+    <Container id="panel-2" role="tabpanel" tabIndex="0" aria-labelledby="tab-2">
+        <Form>
+        <RadioContainer>
+          <legend>Purpose of travel</legend>
+          <Radio>
+            <RadioLabel htmlFor="tourism" onFocus={() => console.log('focus')}>
+              <input type="radio" id="tourism" name="purpose" value="tourism" /><span/>tourism
+            </RadioLabel>
+          </Radio>
+          <Radio>
+            <RadioLabel htmlFor="study-mental-work" onFocus={() => console.log('focus2')}>
+              <input type="radio" id="study-mental-work" name="purpose" value="study-mental-work"/><span/>study / mental work
+            </RadioLabel>
+          </Radio>
+          <Radio>
+            <RadioLabel htmlFor="physical-work">
+              <input type="radio" id="physical-work" name="purpose" value="physical-work"/><span/>physical work
+            </RadioLabel>
+          </Radio>
+          <Radio>
+            <RadioLabel htmlFor="high-risk-sport">
+              <input type="radio" id="high-risk-sport" name="purpose" value="high-risk-sport"/><span/>high-risk sport
+            </RadioLabel>
+          </Radio>
+        </RadioContainer>
+        <label htmlFor="country">Country</label>
+        <Input id="country" type="text" autoComplete="country" name="country" />
+        <label htmlFor="address">Address</label>
+        <Input id="address" type="text" autoComplete="address" name="address" />
+        <label htmlFor="date">Date</label>
+        <Input type="date" id="date" name="date"/>
+        <label htmlFor="description">Incident description</label>
+        <TextArea id="description" rows={5} name="description" />
+        <ButtonsContainer>
+          <Button onClick={() => setActiveStep('step1')} text='Return' align='start'/>
+          <Button isDark onClick={() => setActiveStep('step3')} text='Continue' align='end'/>
+        </ButtonsContainer>
+      </Form>
+    </Container>
   )
 }

@@ -58,8 +58,8 @@ export const Expense = ({ expenseData, removeExpense, expenseIndex, setIsModalOp
         <span>{expenseData.name}</span>
       </ExpenseInfo>
       <IconContainer>
-        <IconButton aria-label="remove expense"><Icon icon={faTrashAlt} onClick={() => removeExpense(expenseData)} /></IconButton>
-        <IconButton aria-label="edit expense"><Icon icon={faPen} onClick={() => handleEdit()} /></IconButton>
+        <IconButton aria-label="remove expense" onClick={() => removeExpense(expenseData)}><Icon icon={faTrashAlt} /></IconButton>
+        <IconButton aria-label="edit expense" onClick={() => handleEdit()}><Icon icon={faPen} /></IconButton>
       </IconContainer>
     </Container>
   )

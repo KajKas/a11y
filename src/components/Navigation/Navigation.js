@@ -56,7 +56,7 @@ export const Navigation = () => {
 
   return (
     <Wrapper>
-      <Logo to="/" aria-label='go to homepage'><img src={logo} alt="logo" /></Logo>
+      <Logo to="/" aria-label='go to homepage'><img src={logo} alt="" aria-hidden="true" /></Logo>
       {isDesktop ? <div>
         <StyledNavLink exact to='/'>Insurance</StyledNavLink>
         <StyledNavLink exact to='/about-us'>About us</StyledNavLink>

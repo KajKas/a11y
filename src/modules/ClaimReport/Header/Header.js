@@ -42,16 +42,22 @@ const Step = styled.button`
   }
 `;
 
-export const Header = ({ setActiveStep, activeStep }) => {
+export const Header = ({setActiveStep, activeStep}) => {
 
   return (
     <Wrapper>
       <Content>
         <h1>Claim report</h1>
-        <Steps>
-          <Step onClick={() => setActiveStep('step1')} className={activeStep === 'step1' && 'active'}>Step 1 - Personal Details</Step>
-          <Step onClick={() => setActiveStep('step2')} className={activeStep === 'step2' && 'active'}>Step 2 - Incident Details</Step>
-          <Step onClick={() => setActiveStep('step3')} className={activeStep === 'step3' && 'active'}>Step 3 - Expense Report</Step>
+        <Steps role="tablist" aria-label="Report steps tabs">
+          <Step aria-controls="panel-1" onClick={() => setActiveStep('step1')}
+                className={activeStep === 'step1' && 'active'} aria-selected={activeStep === 'step1' && 'true'}>Step 1 -
+            Personal Details</Step>
+          <Step aria-controls="panel-2" onClick={() => setActiveStep('step2')}
+                className={activeStep === 'step2' && 'active'} aria-selected={activeStep === 'step2' && 'true'}>Step 2 -
+            Incident Details</Step>
+          <Step aria-controls="panel-3" onClick={() => setActiveStep('step3')}
+                className={activeStep === 'step3' && 'active'} aria-selected={activeStep === 'step3' && 'true'}>Step 3 -
+            Expense Report</Step>
         </Steps>
       </Content>
     </Wrapper>

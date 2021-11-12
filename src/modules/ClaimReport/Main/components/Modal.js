@@ -14,7 +14,7 @@ const Container = styled.div`
   padding: 10px;
 
   @media only screen and (min-width: 1200px) {
-    padding: 200px;
+    padding: 5%;
   }
 `;
 
@@ -65,7 +65,7 @@ export const Modal = ({ setIsModalOpen, isEditModal, addExpense, modalName, setM
   }
 
   return (
-    <Container>
+    <Container role="dialog" aria-modal="true">
       <Content>
         <h1>Expense</h1>
         <Label htmlFor="name">Name</Label>

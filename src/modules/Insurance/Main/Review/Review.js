@@ -17,7 +17,7 @@ const Wrapper = styled.section`
   }
 `;
 
-const ReviewContent = styled.p`
+const ReviewContent = styled.blockquote`
   font-size: 1.6em;
 `;
 
