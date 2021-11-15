@@ -162,7 +162,6 @@ export const Step1 = ({
           <Button isDark onClick={event => checkFields(event)} text='Continue' align='end'/>
         </ButtonContainer>
       </Form>
-      <Button onClick={() => console.log(fNameCheck)}/>
     </Container>
   )
 }
