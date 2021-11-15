@@ -71,7 +71,6 @@ export const Step1 = ({
   const [correctPhoneCheck, setCorrectPhoneCheck] = useState(false);
 
   const handleFNameChange = (event) => {
-    console.log(event.target.value)
     setFName(event.target.value)
   }
   const handleSNameChange = (event) => {
@@ -89,12 +88,12 @@ export const Step1 = ({
   const handlePolicyChange = (event) => {
     setPolicy(event.target.value)
   }
-  const checkFName = () => fName || setFNameCheck(true);
-  const checkSName = () => sName || setSNameCheck(true);
-  const checkBirthday = () => birthday || setBirthdayCheck(true);
-  const checkPhone = () => phone || setPhoneCheck(true);
-  const checkEmail = () => email || setEmailCheck(true);
-  const checkPolicy = () => policy || setPolicyCheck(true);
+  const checkFName = () => setFNameCheck(!fName);
+  const checkSName = () => setSNameCheck(!sName);
+  const checkBirthday = () => setBirthdayCheck(!birthday);
+  const checkPhone = () => setPhoneCheck(!phone);
+  const checkEmail = () => setEmailCheck(!email);
+  const checkPolicy = () => setPolicyCheck(!policy);
 
   const validateEmail = () => {
     const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
@@ -112,20 +111,20 @@ export const Step1 = ({
     return validateEmail() && validatePhone();
   };
   const checkFields = (event) => {
-    event.preventDefault();
+    event.preventDefault();checkFName();
+    checkSName();
+    checkBirthday();
+    checkPhone();
+    checkEmail();
+    checkPolicy();
+    validateCorrectFields();
+
     if (fName && sName && birthday && phone && email && policy) {
-      validateCorrectFields();
       if (/^[0-9\b]+$/g.test(phone) && /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g.test(email)) {
         setActiveStep('step2');
       }
-    } else {
-      checkFName();
-      checkSName();
-      checkBirthday();
-      checkPhone();
-      checkEmail();
-      checkPolicy();
     }
+
   }
 
   return (
@@ -144,12 +143,14 @@ export const Step1 = ({
                onChange={event => handleBirthdayChange(event)}/>
         {birthdayCheck ? <InputAlert>insert birthday</InputAlert> : null}
         <Label htmlFor="phone">Phone number</Label>
-        <Input id="phone" type="tel" autoComplete="phone" className={phoneCheck || correctPhoneCheck ? 'alert' : ''} value={phone}
+        <Input id="phone" type="tel" autoComplete="phone" className={phoneCheck || correctPhoneCheck ? 'alert' : ''}
+               value={phone}
                onChange={event => handlePhoneChange(event)}/>
         {phoneCheck ? <InputAlert>insert phone number</InputAlert> : null}
         {correctPhoneCheck ? <InputAlert>insert proper phone number</InputAlert> : null}
         <Label htmlFor="email">Email</Label>
-        <Input id="email" type="email" autoComplete="email" className={emailCheck || correctEmailCheck ? 'alert' : ''} value={email}
+        <Input id="email" type="email" autoComplete="email" className={emailCheck || correctEmailCheck ? 'alert' : ''}
+               value={email}
                onChange={event => handleEmailChange(event)}/>
         {emailCheck ? <InputAlert>insert email address</InputAlert> : null}
         {correctEmailCheck ? <InputAlert>insert proper email address</InputAlert> : null}
@@ -161,6 +162,7 @@ export const Step1 = ({
           <Button isDark onClick={event => checkFields(event)} text='Continue' align='end'/>
         </ButtonContainer>
       </Form>
+      <Button onClick={() => console.log(fNameCheck)}/>
     </Container>
   )
 }
