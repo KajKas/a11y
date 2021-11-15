@@ -34,6 +34,12 @@ export const Main = ({setActiveStep, activeStep}) => {
   const [email, setEmail] = useState('');
   const [policy, setPolicy] = useState('');
 
+  const [purpose, setPurpose] = useState('');
+  const [country, setCountry] = useState('');
+  const [address, setAddress] = useState('');
+  const [date, setDate] = useState('');
+  const [description, setDescription] = useState('');
+
   const handleFormStep = () => {
     switch (activeStep) {
       case 'step1':
@@ -41,7 +47,9 @@ export const Main = ({setActiveStep, activeStep}) => {
                       setEmail={setEmail} fName={fName} setFName={setFName} phone={phone} setPhone={setPhone}
                       setSName={setSName} sName={sName} policy={policy} setPolicy={setPolicy}/>
       case 'step2':
-        return <Step2 setActiveStep={setActiveStep}/>
+        return <Step2 setActiveStep={setActiveStep} date={date} setDate={setDate} address={address} purpose={purpose}
+                      setPurpose={setPurpose} setAddress={setAddress} country={country} setCountry={setCountry}
+                      description={description} setDescription={setDescription}/>
       case 'step3':
         return <Step3 setActiveStep={setActiveStep} expenses={expenses} setExpenses={setExpenses}/>
       default:

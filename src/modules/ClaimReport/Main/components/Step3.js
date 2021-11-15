@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import {Button} from "../../../../components/Button/Button";
 import {Expense} from "./Expense";
@@ -26,9 +26,22 @@ const ButtonsContainer = styled.div`
 `;
 
 const ExpensesContainer = styled.div`
-  margin: 20px 0 60px 0;
+  margin: 20px 0 0 0;
   display: flex;
   flex-direction: column;
+
+  &.alert {
+    border: 2px solid red;
+    border-radius: 5px;
+  }
+`;
+
+const ExpenseWrapper = styled.span`
+  margin-bottom: 60px;
+`;
+
+const InputAlert = styled.span`
+  color: red;
 `;
 
 export const Step3 = ({setActiveStep, expenses, setExpenses}) => {
@@ -37,6 +50,7 @@ export const Step3 = ({setActiveStep, expenses, setExpenses}) => {
   const [expenseToEditIndex, setExpenseToEditIndex] = useState();
   const [modalName, setModalName] = useState('');
   const [modalPrice, setModalPrice] = useState('');
+  const [expenseCheck, setExpenseCheck] = useState(false);
 
   const addExpense = (newExpense) => {
     const newExpenseList = [...expenses];
@@ -52,30 +66,43 @@ export const Step3 = ({setActiveStep, expenses, setExpenses}) => {
     setExpenses(items);
   }
   const removeExpense = (expenseToRemove) => setExpenses([...expenses].filter(exp => exp.name !== expenseToRemove.name));
+  const checkExpenses = () => setExpenseCheck(!expenses.length);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    checkExpenses();
+    if (expenses.length) setActiveStep('step1');
+  }
+
+  useEffect(() => {
+    checkExpenses();
+  }, [expenses.length])
 
   return (
     <Container id="panel-3" role="tabpanel" tabIndex="0" aria-labelledby="tab-3">
       <Form>
         Expense report
-        <ExpensesContainer>
-          {expenses.map((item, index) =>
-            <Expense
-              key={item.name}
-              expenseData={item}
-              addExpense={addExpense}
-              expenseIndex={index}
-              editExpense={editExpense}
-              removeExpense={removeExpense}
-              setModalName={setModalName}
-              setModalPrice={setModalPrice}
-              setIsModalOpen={setIsModalOpen}
-              setIsEditModal={setIsEditModal}
-              setExpenseToEditIndex={setExpenseToEditIndex} />)}
-          <Button onClick={() => setIsModalOpen(true)} text='+ Add another' align='end'/>
-        </ExpensesContainer>
+        <ExpenseWrapper>
+          <ExpensesContainer className={expenseCheck ? 'alert' : ''}>
+            {expenses.map((item, index) =>
+              <Expense
+                key={item.name}
+                expenseData={item}
+                addExpense={addExpense}
+                expenseIndex={index}
+                editExpense={editExpense}
+                removeExpense={removeExpense}
+                setModalName={setModalName}
+                setModalPrice={setModalPrice}
+                setIsModalOpen={setIsModalOpen}
+                setIsEditModal={setIsEditModal}
+                setExpenseToEditIndex={setExpenseToEditIndex}/>)}
+            <Button onClick={() => setIsModalOpen(true)} text='+ Add another' align='end'/>
+          </ExpensesContainer>
+          {expenseCheck ? <InputAlert>at least one expense is needed</InputAlert> : null}
+        </ExpenseWrapper>
         <ButtonsContainer>
           <Button onClick={() => setActiveStep('step2')} text='Return' align='start'/>
-          <Button isDark onClick={() => setActiveStep('step1')} text='Submit' align='end'/>
+          <Button isDark onClick={(e) => handleSubmit(e)} text='Submit' align='end'/>
         </ButtonsContainer>
         {isModalOpen &&
         <Modal addExpense={addExpense} setIsModalOpen={setIsModalOpen} modalName={modalName} setModalName={setModalName}

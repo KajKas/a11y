@@ -111,15 +111,16 @@ export const Step1 = ({
     return validateEmail() && validatePhone();
   };
   const checkFields = (event) => {
-    event.preventDefault();checkFName();
+    event.preventDefault();
+    checkFName();
     checkSName();
     checkBirthday();
     checkPhone();
     checkEmail();
     checkPolicy();
-    validateCorrectFields();
 
     if (fName && sName && birthday && phone && email && policy) {
+      validateCorrectFields();
       if (/^[0-9\b]+$/g.test(phone) && /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g.test(email)) {
         setActiveStep('step2');
       }
@@ -132,31 +133,31 @@ export const Step1 = ({
       <Form>
         <Label htmlFor="fName">First name</Label>
         <Input id="fName" type="text" autoComplete="name" className={fNameCheck ? 'alert' : ''} value={fName}
-               onChange={event => handleFNameChange(event)}/>
+               onChange={event => handleFNameChange(event)} onBlur={checkFName}/>
         {fNameCheck ? <InputAlert>insert first name</InputAlert> : null}
         <Label htmlFor="sName">Second name</Label>
         <Input id="sName" type="text" autoComplete="name" className={sNameCheck ? 'alert' : ''} value={sName}
-               onChange={event => handleSNameChange(event)}/>
+               onChange={event => handleSNameChange(event)} onBlur={checkSName}/>
         {sNameCheck ? <InputAlert>insert second name</InputAlert> : null}
         <Label htmlFor="birthday">Birthday</Label>
         <Input type="date" id="birthday" name="birthday" className={birthdayCheck ? 'alert' : ''} value={birthday}
-               onChange={event => handleBirthdayChange(event)}/>
+               onChange={event => handleBirthdayChange(event)} onBlur={checkBirthday}/>
         {birthdayCheck ? <InputAlert>insert birthday</InputAlert> : null}
         <Label htmlFor="phone">Phone number</Label>
         <Input id="phone" type="tel" autoComplete="phone" className={phoneCheck || correctPhoneCheck ? 'alert' : ''}
                value={phone}
-               onChange={event => handlePhoneChange(event)}/>
+               onChange={event => handlePhoneChange(event)} onBlur={checkPhone}/>
         {phoneCheck ? <InputAlert>insert phone number</InputAlert> : null}
         {correctPhoneCheck ? <InputAlert>insert proper phone number</InputAlert> : null}
         <Label htmlFor="email">Email</Label>
         <Input id="email" type="email" autoComplete="email" className={emailCheck || correctEmailCheck ? 'alert' : ''}
                value={email}
-               onChange={event => handleEmailChange(event)}/>
+               onChange={event => handleEmailChange(event)} onBlur={checkEmail}/>
         {emailCheck ? <InputAlert>insert email address</InputAlert> : null}
         {correctEmailCheck ? <InputAlert>insert proper email address</InputAlert> : null}
         <Label htmlFor="policy">Policy number</Label>
         <Input id="policy" type="text" autoComplete="policy" className={policyCheck ? 'alert' : ''} value={policy}
-               onChange={event => handlePolicyChange(event)}/>
+               onChange={event => handlePolicyChange(event)} onBlur={checkPolicy}/>
         {policyCheck ? <InputAlert>insert policy</InputAlert> : null}
         <ButtonContainer>
           <Button isDark onClick={event => checkFields(event)} text='Continue' align='end'/>
