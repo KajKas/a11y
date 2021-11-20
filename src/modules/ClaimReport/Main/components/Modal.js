@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import styled from "styled-components";
 import {Button} from "../../../../components/Button/Button";
 
@@ -54,6 +54,8 @@ const ButtonsContainer = styled.div`
 `;
 
 export const Modal = ({ setIsModalOpen, isEditModal, addExpense, modalName, setModalName, modalPrice, setModalPrice, editExpense, setIsEditModal }) => {
+  const modalRef = useRef(null);
+  // const modalRef = React.createRef();
   const handleNameChange = (e) => setModalName(e.target.value);
   const handlePriceChange = (e) => setModalPrice(e.target.value);
   const handleAddExpense = () => {
@@ -64,10 +66,43 @@ export const Modal = ({ setIsModalOpen, isEditModal, addExpense, modalName, setM
     setModalPrice('');
   }
 
+  console.log(modalRef)
+
+  const handleTabKey = e => {
+    const focusableModalElements = modalRef.current.querySelectorAll(
+      'button, input'
+    )
+    const firstElement = focusableModalElements[0];
+    const lastElement =
+      focusableModalElements[focusableModalElements.length - 1];
+
+    if (!e.shiftKey && document.activeElement !== firstElement) {
+      firstElement.focus();
+      return e.preventDefault();
+    }
+
+    if (e.shiftKey && document.activeElement !== lastElement) {
+      lastElement.focus();
+      e.preventDefault();
+    }
+  }
+
+  const keyListenersMap = new Map([[9, handleTabKey]]);
+
+  useEffect(() => {
+    function keyListener(e) {
+      const listener = keyListenersMap.get(e.keyCode);
+      return listener && listener(e);
+    }
+    document.addEventListener("keydown", keyListener);
+
+    return () => document.removeEventListener("keydown", keyListener);
+  });
+
   return (
-    <Container role="dialog" aria-modal="true">
+    <Container role="dialog" aria-modal="true" aria-labelledby='dialog-title' id='modal'>
       <Content>
-        <h1>Expense</h1>
+        <h1 id='dialog-title'>Add new expense</h1>
         <Label htmlFor="name">Name</Label>
         <Input id="name" type="text" autoComplete="expense" value={modalName} onChange={(e) => handleNameChange(e)} />
         <Label htmlFor="price">Price</Label>

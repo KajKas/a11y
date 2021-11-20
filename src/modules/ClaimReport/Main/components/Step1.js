@@ -96,7 +96,7 @@ export const Step1 = ({
   const checkPolicy = () => setPolicyCheck(!policy);
 
   const validateEmail = () => {
-    const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+    const pattern = /[a-zA-Z0-9]+[.]?([a-zA-Z0-9]+)?[@][a-z]{3,9}[.][a-z]{2,5}/g;
     setCorrectEmailCheck(!pattern.test(email))
     return pattern.test(email);
   }
@@ -121,7 +121,7 @@ export const Step1 = ({
 
     if (fName && sName && birthday && phone && email && policy) {
       validateCorrectFields();
-      if (/^[0-9\b]+$/g.test(phone) && /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g.test(email)) {
+      if (/^[0-9\b]+$/g.test(phone) && /[a-zA-Z0-9]+[.]?([a-zA-Z0-9]+)?[@][a-z]{3,9}[.][a-z]{2,5}/g.test(email)) {
         setActiveStep('step2');
       }
     }
