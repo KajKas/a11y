@@ -1,5 +1,6 @@
-import React, {useRef, useEffect} from 'react';
+import React from 'react';
 import styled from "styled-components";
+import FocusTrap from 'focus-trap-react'
 import {Button} from "../../../../components/Button/Button";
 
 const Container = styled.div`
@@ -47,71 +48,49 @@ const ButtonsContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 30px;
-  
+
   button {
     margin: 10px;
   }
 `;
 
-export const Modal = ({ setIsModalOpen, isEditModal, addExpense, modalName, setModalName, modalPrice, setModalPrice, editExpense, setIsEditModal }) => {
-  const modalRef = useRef(null);
-  // const modalRef = React.createRef();
+export const Modal = ({
+                        setIsModalOpen,
+                        isEditModal,
+                        addExpense,
+                        modalName,
+                        setModalName,
+                        modalPrice,
+                        setModalPrice,
+                        editExpense,
+                        setIsEditModal,
+                        isModalOpen
+                      }) => {
   const handleNameChange = (e) => setModalName(e.target.value);
   const handlePriceChange = (e) => setModalPrice(e.target.value);
   const handleAddExpense = () => {
-    isEditModal ? editExpense() : addExpense({ name: modalName, amount: modalPrice });
+    isEditModal ? editExpense() : addExpense({name: modalName, amount: modalPrice});
     setIsModalOpen(false);
     setIsEditModal(false);
     setModalName('');
     setModalPrice('');
   }
 
-  console.log(modalRef)
-
-  const handleTabKey = e => {
-    const focusableModalElements = modalRef.current.querySelectorAll(
-      'button, input'
-    )
-    const firstElement = focusableModalElements[0];
-    const lastElement =
-      focusableModalElements[focusableModalElements.length - 1];
-
-    if (!e.shiftKey && document.activeElement !== firstElement) {
-      firstElement.focus();
-      return e.preventDefault();
-    }
-
-    if (e.shiftKey && document.activeElement !== lastElement) {
-      lastElement.focus();
-      e.preventDefault();
-    }
-  }
-
-  const keyListenersMap = new Map([[9, handleTabKey]]);
-
-  useEffect(() => {
-    function keyListener(e) {
-      const listener = keyListenersMap.get(e.keyCode);
-      return listener && listener(e);
-    }
-    document.addEventListener("keydown", keyListener);
-
-    return () => document.removeEventListener("keydown", keyListener);
-  });
-
   return (
-    <Container role="dialog" aria-modal="true" aria-labelledby='dialog-title' id='modal'>
-      <Content>
-        <h1 id='dialog-title'>Add new expense</h1>
-        <Label htmlFor="name">Name</Label>
-        <Input id="name" type="text" autoComplete="expense" value={modalName} onChange={(e) => handleNameChange(e)} />
-        <Label htmlFor="price">Price</Label>
-        <Input id="price" type="text" autoComplete="price" value={modalPrice} onChange={(e) => handlePriceChange(e)} />
-        <ButtonsContainer>
-          <Button text='Cancel' align='start' onClick={() => setIsModalOpen(false)} />
-          <Button isDark text='Save' align='end' onClick={handleAddExpense} />
-        </ButtonsContainer>
-      </Content>
-    </Container>
+    <FocusTrap active={isModalOpen}>
+      <Container role="dialog" aria-modal="true" aria-labelledby='dialog-title' id='modal'>
+        <Content>
+          <h1 id='dialog-title'>Add new expense</h1>
+          <Label htmlFor="name">Name</Label>
+          <Input id="name" type="text" autoComplete="expense" value={modalName} onChange={(e) => handleNameChange(e)}/>
+          <Label htmlFor="price">Price</Label>
+          <Input id="price" type="text" autoComplete="price" value={modalPrice} onChange={(e) => handlePriceChange(e)}/>
+          <ButtonsContainer>
+            <Button text='Cancel' align='start' onClick={() => setIsModalOpen(false)}/>
+            <Button isDark text='Save' align='end' onClick={handleAddExpense}/>
+          </ButtonsContainer>
+        </Content>
+      </Container>
+    </FocusTrap>
   )
 }

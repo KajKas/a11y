@@ -107,7 +107,7 @@ export const Step3 = ({setActiveStep, expenses, setExpenses}) => {
         {isModalOpen &&
         <Modal addExpense={addExpense} setIsModalOpen={setIsModalOpen} modalName={modalName} setModalName={setModalName}
                modalPrice={modalPrice} setModalPrice={setModalPrice} editExpense={editExpense} isEditModal={isEditModal}
-               setIsEditModal={setIsEditModal}/>}
+               setIsEditModal={setIsEditModal} isModalOpen={isModalOpen} />}
       </Form>
     </Container>
   )
